@@ -101,7 +101,7 @@ void Calculator::fillBinaryOperation(const string& token) {
 
 	// While stack that full of bracket body - try to get it for polish notation
 	while (stack && isOperation(stack.peek()) &&
-		(getOperationType(stack.peek()) == OperType::PRE || isLower(token, stack.peek()))) {
+		(getOperationType(stack.peek()) == OperType::PRE || isLower(stack.peek(), token))) {
 
 		notation.push_back(stack.pop());
 	}
