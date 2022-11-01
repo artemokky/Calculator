@@ -116,7 +116,11 @@ string Calculator::parseToken(const string& str, int& index) {
 	bool wasDot = false;
 
 	// If number
-	if (isdigit(str[index])) {
+	if (isdigit(str[index]) || (str[index] == '-' && isdigit(str[index + 1]))) {
+		if (str[index] == '-') {
+			token.push_back(str[index]);
+			index++;
+		}
 		// While str[index] == number or dot
 		while (index < str.size() && (isdigit(str[index]) || str[index] == '.')) {
 			// If dot
